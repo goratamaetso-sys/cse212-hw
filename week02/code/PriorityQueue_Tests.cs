@@ -28,7 +28,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: add and remove a single item from the queue
     // Expected Result: Gorata
-    // Defect(s) Found: none
+    // Defect(s) Found: none. a single item is correctly returned when dequeued
     public void TestPriorityQueue_2()
     {
         var priorityQueue = new PriorityQueue();
@@ -40,7 +40,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: highest priority item was selected first
     // Expected Result: high
-    // Defect(s) Found: none
+    // Defect(s) Found: none: the item with the highest priority is removed first
     public void TestPriorityQueue_3()
     {
         var priorityQueue = new PriorityQueue();
@@ -55,7 +55,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: if there are multiple items with the same priority value it should be first in first out {A B C}
     // Expected Result: A B C
-    // Defect(s) Found: 
+    // Defect(s) Found: items with the same priority were dequeued in the reverse order instead of first-in first-out
     public void TestPriorityQueue_4()
     {
         var priorityQueue = new PriorityQueue();
@@ -71,7 +71,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: if there are multiple items with different priority value it should go from high to low
     // Expected Result: B D A C
-    // Defect(s) Found: none
+    // Defect(s) Found: when multiple items shared the same priority the most recently added item was removed first instead of the earliest item
     public void TestPriorityQueue_5()
     {
         var priorityQueue = new PriorityQueue();
@@ -90,7 +90,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: check that items are removed
     // Expected Result: A, InvalidOperationException
-    // Defect(s) Found: none
+    // Defect(s) Found: none. items are removed from the queuw after being dequeued
     public void TestPriorityQueue_6()
     {
         var priorityQueue = new PriorityQueue();
@@ -104,7 +104,7 @@ public class PriorityQueueTests
     [TestMethod]
     // Scenario: last item has the highest priority: A,1 B,2 C,9
     // Expected Result: C
-    // Defect(s) Found: none
+    // Defect(s) Found: none. the highest priority item is correctly selected even whe added last
     public void TestPriorityQueue_7()
     {
         var priorityQueue = new PriorityQueue();
